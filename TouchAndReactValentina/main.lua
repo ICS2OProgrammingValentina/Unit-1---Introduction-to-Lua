@@ -51,3 +51,9 @@ end
 
 -- add the respective listeners to each object
 blueButton:addEventListener("touch", BlueButtonListener)
+
+-- Sound
+local boing = audio.loadSound( "Sound/BoingSoundEffect.mp3")
+local boingSoundChannel
+
+boingSoundChannel = audio.play(boing)

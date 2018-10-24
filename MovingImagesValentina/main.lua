@@ -65,3 +65,9 @@ end
 
 -- moveship will be called over and over again
 Runtime:addEventListener("enterFrame", MoveShip)
+
+-- Background sounds
+local Sound = audio.loadSound( "Sounds/SpringSoundEffect.mp3")
+local backgroundSoundChannel
+
+backgroundSoundChannel = audio.play(Sound)

@@ -1,11 +1,9 @@
 -----------------------------------------------------------------------------------------
--- Title: NumericTextFields
--- Name: Valentina
+-- Title: LivesAndTimers
+-- Name: Valentina G Melendez
 -- Course: ICS2O
--- This program displays a math question and asks the user to answer in a numeric textfield.
--- terminal.
------------------------------------------------------------------------------------------
-
+-- This program
+-------------------------------------------------------------------------------------------
 -- hide the status bar
 display.setStatusBar(display.HiddenStatusBar)
 
@@ -138,6 +136,62 @@ numericField:addEventListener( "userInput", NumericFieldListener )
 
 -- call the function to ask the question
 AskQuestion()
+---------------------------------------------------------------------------------------------
+-- variables for timer
+local totalSeconds = 10
+local secondsLeft = 10
+local clockText
+local countDownTimer
 
+local lives = 3
+local heart1
+local heart2
 
+local incorrectObject
+local pointsObject
+local points
 
+-------------------------------------------------------------------------------------------
+
+-- local functions
+-- function that cals the timer
+
+local function StartTimer()
+	-- create a countdown timer that loops infinitley
+	countDownTimer = timer.performWithDelay( 1000, UpdateTime, 0 )
+end
+
+local function UpdateTime()
+
+	-- decrement the number of seconds
+	secondsLeft = secondsLeft - 1
+
+	-- display the number of seconds left in the clock object
+	clockText.text = secondsLeft .. ""
+
+	if (secondsLeft == 0 )then
+		-- reset the number of seconds left
+		secondsLeft = totalSeconds
+		lives = lives - 1
+
+		if ( lives == 2 )then
+			heart2.isVisible = false
+		elseif ( lives == 1 )then
+			heart1.isVisible = false
+		end
+	end
+end
+
+--------------------------------------------------------------------------------------------
+-- object creation
+
+countDownTimer
+
+-- create the lives to display on the screen
+heart1 = display.newImageRect("Images/heart.png", 100, 100)
+heart1.x = display.contentWidth * 7/8
+heart1.y = display.contentHeight * 1/7
+
+heart2 = display.newImageRect("Images/heart.png", 100, 100)
+heart2.x = display.contentWidth * 6/8
+heart2.y = display.contentHeight * 1/7

@@ -44,7 +44,7 @@ function PopUp()
 	mole.isVisible = true
 
 	-- call Hide function after 500 miliseconds
-	timer.performWithDelay(500, PopUp)
+	timer.performWithDelay(1000, PopUp)
 end
 
 -- this function calls the PopUp function after 3 seconds
@@ -76,7 +76,7 @@ function Whacked(event)
 
 		--dsiplay points
 		pointsObject = " Points = " .. startingPoints , display.contentWidth * 2/4, display.contentHeight * 1/4, Arial, 50
-		pointsObject:setTextColor( 43/255, 42/255, 155/255 )
+		pointsObject:setTextColor( 255/255, 255/255, 255/255 )
 	end
 
 end

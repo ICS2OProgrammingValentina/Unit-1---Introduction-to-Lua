@@ -74,9 +74,6 @@ function Whacked(event)
 		startingPoints = startingPoints + 1
 		pointsObject.text = " points = " .. startingPoints
 
-		--dsiplay points
-		pointsObject = " Points = " .. startingPoints , display.contentWidth * 2/4, display.contentHeight * 1/4, Arial, 50
-		pointsObject:setTextColor( 255/255, 255/255, 255/255 )
 	end
 
 end

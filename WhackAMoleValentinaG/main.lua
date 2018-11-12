@@ -12,21 +12,25 @@ display.setStatusBar(display.HiddenStatusBar)
 display.setDefault("background", 130/255, 120/255, 150/255 )
 
 -- creating mole
-local mole = display.newImage("Images/mole.png", 0, 0 )
+local dog = display.newImage("Images/dog.png", 0, 0 )
 -- setting postion
-mole.x = display.contentCenterX
-mole.y = display.contentCenterY
+dog.x = display.contentCenterX
+dog.y = display.contentCenterY
 -- scale mole down
-mole:scale( 0.3, 0.3)
+dog:scale( 0.4, 0.4)
 --make mole invivsible
-mole.isVisible = false
+dog.isVisible = false
 
 -- score
 local pointsObject
 local startingPoints = 0
 --dsiplay points
-pointsObject = display.newText(" Points = " .. startingPoints , display.contentWidth * 2/4, display.contentHeight * 1/4, Arial, 50)
+pointsObject = display.newText(" Points = " .. startingPoints , display.contentWidth * 2/4, display.contentHeight * 3/4, Arial, 70)
 pointsObject:setTextColor( 255/255, 255/255, 255/255)
+
+--SOUND
+
+local touchSound = audio.loadSound("")
 -------------------------------------------------------------------------------------------
 -- FUNCTIONS
 -------------------------------------------------------------------------------------------
@@ -37,26 +41,26 @@ pointsObject:setTextColor( 255/255, 255/255, 255/255)
 function PopUp()
 
 	-- choosing random postion
-	mole.x = math.random( 0, display.contentWidth)
-	mole.y = math.random( 0, display.contentHeight)
+	dog.x = math.random( 0, display.contentWidth)
+	dog.y = math.random( 0, display.contentHeight)
 
 	-- make mole visible
-	mole.isVisible = true
+	dog.isVisible = true
 
-	-- call Hide function after 500 miliseconds
-	timer.performWithDelay(1000, PopUp)
+	-- call Hide function after 700 miliseconds
+	timer.performWithDelay(700, PopUp)
 end
 
 -- this function calls the PopUp function after 3 seconds
 function PopUpDelay()
-	timer.performWithDelay( 300, PopUp )
+	timer.performWithDelay( 100, PopUp )
 end
 
 -- this function makes the mole invisible and then calls the PopUpDelay function
 function Hide()
 
 	-- change visibility
-	mole.isVisible = false
+	dog.isVisible = false
 	-- call function
 	PopUpDelay()
 end
@@ -74,25 +78,15 @@ function Whacked(event)
 		startingPoints = startingPoints + 1
 		pointsObject.text = " points = " .. startingPoints
 
-		--dsiplay points
-		pointsObject = " Points = " .. startingPoints , display.contentWidth * 2/4, display.contentHeight * 1/4, Arial, 50
-		pointsObject:setTextColor( 255/255, 255/255, 255/255 )
+
 	end
 
 end
 
 -- i addd the event listener to the moles so that if the mole is touched, the Whacked function
 -- is called
-mole:addEventListener( "touch", Whacked )
+dog:addEventListener( "touch", Whacked )
 
 -- START GAME
 --Whacked()
 GameStart()
-
-
-
-
-
-
-
-

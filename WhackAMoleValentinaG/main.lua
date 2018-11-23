@@ -77,13 +77,7 @@ function Whacked(event)
 	if (event.phase == "began") then
 		startingPoints = startingPoints + 1
 		pointsObject.text = " points = " .. startingPoints
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 7590afba7960550a5ce186914f076cf598a85576
 	end
-
 end
 
 -- i addd the event listener to the moles so that if the mole is touched, the Whacked function
